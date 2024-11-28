@@ -1,1 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+@use '../src/shared/styles/base';
+@use '../src/shared/styles/typography';
+@use '../src/shared/styles/components';
+@use '../src/shared/styles/animations';

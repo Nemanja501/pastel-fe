@@ -1,0 +1,22 @@
+@use '../../shared/styles/base' as *;
+
+.sign-up-container {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.sign-up {
+    background-color: rgba($color-secondary, .6);
+    grid-column: 2 / 3;
+    margin: 10vh 0;
+    border-radius: 5rem;
+    display: grid;
+    grid-template-rows: min-content min-content 1fr;
+    row-gap: 1rem;
+    justify-items: center;
+
+    &__subtitle {
+        margin-top: -3rem;
+    }
+}

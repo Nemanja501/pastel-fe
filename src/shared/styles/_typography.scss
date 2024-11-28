@@ -1,0 +1,18 @@
+@use './base' as *;
+
+.heading-1{
+    color: $color-secondary;
+    font-size: 15rem;
+    animation: floatInFromLeft 1.5s;
+}
+
+.heading-2 {
+    color: $color-secondary;
+    font-size: 10rem;
+}
+
+.heading-3 {
+    color: $color-primary-dark;
+    font-family: $font-secondary !important;
+    font-size: 4rem;
+}

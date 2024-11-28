@@ -1,0 +1,39 @@
+///////////VARIABLES
+/// COLORS
+// $color-primary: #FFACC7;
+// $color-primary-light: #ffc9da;
+// $color-primary-dark: #f57a7a;
+$color-primary: #A888B5;
+$color-primary-light: #F0C1E1;
+$color-primary-dark: #8174A0;
+
+$color-secondary: #F5EFFF;
+
+
+/// FONTS
+$font-primary: "Chewy", sans-serif;
+$font-secondary: "Permanent Marker", cursive;
+
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%; //1rem = 10px
+}
+
+* {
+    font-family: $font-primary;
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+body {
+    background-image: linear-gradient(to right bottom, $color-primary-dark, $color-primary-light);
+    height: 100vh;
+    background-size: cover;
+}
+
+::selection {
+    background-color: $color-primary-dark;
+    color: $color-primary-light;
+}
