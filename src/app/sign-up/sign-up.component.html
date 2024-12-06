@@ -1,34 +1,47 @@
-<div class="sign-up-container">
+<div class="sign-up-container" *ngIf="!isLoading">
     <div class="sign-up">
         <h1 class="heading-2 sign-up__title">Pastel</h1>
         <h3 class="heading-3 sign-up__subtitle">Sign Up</h3>
-        <form class="form">
+        <form class="form" [formGroup]="signupForm" (ngSubmit)="onSubmit()">
             <div class="form__control">
                 <label for="username" class="form__label">Username</label>
-                <input type="text" class="form__input" id="username">
+                <input type="text" class="form__input" id="username" formControlName="userName">
+                <span *ngIf="userName!.invalid && userName!.touched" class="form__warning">Username must be between 3 and 20 characters</span>
             </div>
     
             <div class="form__control">
                 <label for="display-name" class="form__label">Display name</label>
-                <input type="text" class="form__input" id="display-name">
+                <input type="text" class="form__input" id="display-name" formControlName="displayName">
+                <span *ngIf="displayName!.invalid && displayName!.touched" class="form__warning">Display name must be between 3 and 20 characters</span>
             </div>
 
             <div class="form__control">
                 <label for="email" class="form__label">Email</label>
-                <input type="email" class="form__input" id="email">
+                <input type="email" class="form__input" id="email" formControlName="email">
+                <span *ngIf="email!.invalid && email!.touched" class="form__warning">Email must be a valid email address</span>
             </div>
 
             <div class="form__control">
                 <label for="password" class="form__label">Password</label>
-                <input type="password" class="form__input" id="password">
+                <input type="password" class="form__input" id="password" formControlName="password">
+                <span *ngIf="password!.invalid && password!.touched" class="form__warning">
+                    Password must contain at least 6 characters, of which at least 1 must be uppercase, 1 lowercase, 1 number and 1 special character
+                </span>
             </div>
 
             <div class="form__control">
                 <label for="confirm-password" class="form__label">Confirm Password</label>
-                <input type="password" class="form__input" id="confirm-password">
+                <input type="password" class="form__input" id="confirm-password" formControlName="confirmPassword">
+                <span *ngIf="confirmPassword!.invalid && confirmPassword!.touched" class="form__warning">Password confirmation is required</span>
             </div>
 
-            <button type="submit" class="btn--form">Submit</button>
+            <button type="submit" class="btn--form" [disabled]="!signupForm.valid">Submit</button>
         </form>
     </div>
+    <div class="error-container-1" *ngIf="signupErr">
+        <app-error [title]="signupErr.message" [data]="signupErr.data"></app-error>
+    </div>
+</div>
+<div class="spinner-container-1" *ngIf="isLoading">
+    <app-loading-spinner ></app-loading-spinner>
 </div>

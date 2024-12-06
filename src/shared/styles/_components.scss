@@ -24,7 +24,12 @@
         animation: none;
         width: 15rem;
         height: 5rem;
-        
+        margin-top: 3rem;
+
+        &:disabled {
+            opacity: .3;
+            pointer-events: none;
+        }
     }
     
 }
@@ -69,5 +74,14 @@
             outline: none;
             border-bottom: .4rem solid $color-primary;
         }
+
+        &.ng-invalid.ng-touched {
+            border-bottom: .4rem solid $color-warning;
+        }
+    }
+
+    &__warning {
+        color: $color-warning;
+        font-size: 1.3rem;
     }
 }
