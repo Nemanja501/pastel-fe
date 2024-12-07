@@ -13,3 +13,15 @@
     justify-self: center;
     margin-bottom: 5rem;
 }
+
+//container for every page that has a sidebar
+.container {
+    display: grid;
+    grid-template-columns: 20% 1fr;
+    min-height: 100vh;
+}
+
+.sidebar-container {
+    grid-column: 1 / 2;
+    grid-row: 1 / -1;
+}
