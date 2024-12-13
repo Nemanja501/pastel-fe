@@ -3,11 +3,12 @@ import { HomeComponent } from './home/home.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { LoginComponent } from './login/login.component';
 import { FeedComponent } from './feed/feed.component';
+import { AuthGuard } from '../shared/guards/auth.guard';
 
 export const routes: Routes = [
     {path: 'home', component: HomeComponent},
     {path: 'signup', component: SignUpComponent},
     {path: 'login', component: LoginComponent},
-    {path: 'feed', component: FeedComponent},
+    {path: 'feed', component: FeedComponent, canActivate: [AuthGuard]},
     {path: '', redirectTo: '/home', pathMatch: 'full'}
 ];

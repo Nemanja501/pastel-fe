@@ -1,4 +1,7 @@
-<form class="new-post" [formGroup]="newPostForm" (ngSubmit)="onSubmit()">
+<form class="new-post" [formGroup]="newPostForm" (ngSubmit)="onSubmit()" *ngIf="!isLoading">
     <textarea placeholder="Make a new post..." class="new-post__input" formControlName="content"></textarea>
     <button class="new-post__btn" type="submit" [disabled]="!newPostForm.valid">Post</button>
 </form>
+<div class="spinner-container-2" *ngIf="isLoading">
+    <app-loading-spinner></app-loading-spinner>
+</div>

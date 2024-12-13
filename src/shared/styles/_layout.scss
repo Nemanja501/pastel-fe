@@ -6,6 +6,13 @@
     align-items: center;
 }
 
+//spinner container for new post component
+.spinner-container-2 {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end
+}
+
 //error container for login and signup pages
 .error-container-1 {
     grid-row: 2 / 3;

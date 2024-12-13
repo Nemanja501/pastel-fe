@@ -39,6 +39,7 @@ export class LoginComponent {
         console.log('res', response);
         localStorage.setItem('token', JSON.stringify(response.token));
         localStorage.setItem('userId', JSON.stringify(response.userId));
+        this.authService.isLoggedIn = true;
         this.isLoading = false;
         this.router.navigate(['/feed']);
       },
