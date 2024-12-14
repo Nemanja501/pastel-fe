@@ -2,7 +2,6 @@ import { HttpEvent, HttpEventType, HttpHandlerFn, HttpRequest } from "@angular/c
 import { Observable, tap } from "rxjs";
 
 export function AuthInterceptor(req: HttpRequest<any>, next: HttpHandlerFn): Observable<HttpEvent<any>> {
-    console.log('auth interceptor req', req);
     let token = localStorage.getItem('token');
     if(token) {
         req = req.clone({

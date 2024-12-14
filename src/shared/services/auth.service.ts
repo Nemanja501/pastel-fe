@@ -3,7 +3,7 @@ import { Injectable } from "@angular/core";
 
 @Injectable({providedIn: 'root'})
 export class AuthService { 
-    isLoggedIn: boolean = false;
+    private _isLoggedIn: boolean = false;
     constructor (private http: HttpClient) {}
 
     signup(signupData: any) {
@@ -12,6 +12,19 @@ export class AuthService {
 
     login(loginData: any) {
         return this.http.post('http://localhost:3000/login', loginData);
+    }
+
+    get isLoggedIn() {
+        const token = localStorage.getItem('token');
+        if(token) {
+            return true;
+        }else {
+            return false;
+        }
+    }
+
+    set isLoggedIn(value: boolean) {
+        this._isLoggedIn = value;
     }
 
 }
