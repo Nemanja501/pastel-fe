@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="user-page">
+        <div class="user-page__content">
+            <div class="user-page__header">
+                <h2 class="user-page__displayname">{{ user.displayName }}</h2>
+                <h2 class="user-page__username">{{ '@' + user.userName }}</h2>
+            </div>
+            <hr class="hr--2">
+            <div class="user-page__footer">
+                <h4 class="user-page__followers">Followers: {{ user.followers.length }}</h4>
+                <h4 class="user-page__following">Following: {{ user.following.length }}</h4>
+            </div>
+        </div>
+        <div class="posts-container" *ngIf="posts.length > 0">
+            <app-post *ngFor="let post of posts" [userName]="user.userName" [displayName]="user.displayName" [content]="post.content" [userId]="user._id"></app-post>
+        </div>
+    </div>
+    <div class="sidebar-container">
+        <app-sidebar></app-sidebar>
+    </div>
+</div>

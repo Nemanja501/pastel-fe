@@ -85,3 +85,20 @@
         font-size: 1.3rem;
     }
 }
+
+//HR
+.hr {
+    &--1 {
+        height: .5rem;
+        border: none;
+        border-radius: 1rem;
+        background-color: rgba($color-primary, .8);
+    }
+
+    &--2 {
+        height: .5rem;
+        border: none;
+        border-radius: 1rem;
+        background-color: rgba($color-secondary, .8);
+    }
+}
