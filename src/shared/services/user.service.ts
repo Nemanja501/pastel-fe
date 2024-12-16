@@ -5,7 +5,19 @@ import { Injectable } from "@angular/core";
 export class UserService {
     constructor(private http: HttpClient) {}
 
-    getUser(id: any){
-        return this.http.get(`http://localhost:3000/users/${id}`);
+    getUser(followerId: string, userId: string){
+        return this.http.get(`http://localhost:3000/users/${userId}`, {
+            params: {
+                followerId,
+                userId
+            }
+        });
+    }
+
+    followUser(followerId: string, userId: string) {
+        return this.http.post('http://localhost:3000/follow', {
+            followerId,
+            userId
+        });
     }
 }

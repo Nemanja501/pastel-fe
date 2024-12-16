@@ -9,6 +9,7 @@
             <div class="user-page__footer">
                 <h4 class="user-page__followers">Followers: {{ user.followers.length }}</h4>
                 <h4 class="user-page__following">Following: {{ user.following.length }}</h4>
+                <button class="user-page__btn" (click)="followUser()">{{ isFollowing ? 'Unfollow' : 'Follow' }}</button>
             </div>
         </div>
         <div class="posts-container" *ngIf="posts.length > 0">

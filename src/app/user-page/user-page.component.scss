@@ -33,14 +33,40 @@
 
     &__footer {
         height: 40%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: min-content min-content;
+        row-gap: 2rem;
+        margin-top: 6rem;
+        margin-left: 3rem;
     }
 
     &__followers,
     &__following {
         color: $color-secondary;
         font-size: 4rem;
+    }
+
+    &__following {
+        grid-row: 2 / -1;
+    }
+
+    &__btn {
+        grid-column: 2 / -1;
+        grid-row: 1 / span 2;
+        font-size: 3rem;
+        padding: 1.5rem 3rem;
+        margin: 3rem 10rem;
+        border: none;
+        border-radius: 3rem;
+        background-color: $color-secondary;
+        color: $color-primary-dark;
+        transition: all .2s;
+
+        &:hover {
+            transform: translateY(-1rem);
+            cursor: pointer;
+            background-color: $color-primary-light;
+        }
     }
 }
