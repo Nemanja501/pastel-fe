@@ -26,6 +26,10 @@
         height: 5rem;
         margin-top: 3rem;
 
+        &:hover {
+            transform: translateY(0);
+        }
+
         &:disabled {
             opacity: .3;
             pointer-events: none;

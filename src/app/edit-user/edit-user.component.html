@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="edit-user__container">
+        <form class="form edit-user__form" [formGroup]="editUserForm" (ngSubmit)="onSubmit()">
+            <h3 class="heading-3">Edit Profile</h3>
+            <div class="form__control">
+                <label for="username" class="form__label">Username</label>
+                <input type="text" class="form__input" id="username" formControlName="userName">
+            </div>
+    
+            <div class="form__control">
+                <label for="display-name" class="form__label">Display name</label>
+                <input type="text" class="form__input" id="display-name" formControlName="displayName">
+            </div>
+    
+            <div class="form__control">
+                <label for="email" class="form__label">Email</label>
+                <input type="email" class="form__input" id="email" formControlName="email">
+            </div>
+    
+            <div class="form__control">
+                <label for="password" class="form__label">Password</label>
+                <input type="password" class="form__input" id="password" formControlName="password">
+            </div>
+
+            <div class="form__control">
+                <label for="confirm-password" class="form__label">Confirm Password</label>
+                <input type="password" class="form__input" id="confirm-password" formControlName="confirmPassword">
+            </div>
+    
+            <button type="submit" class="btn--form" >Submit</button>
+        </form>
+    </div>
+        <div class="sidebar-container">
+            <app-sidebar></app-sidebar>
+    </div>
+</div>

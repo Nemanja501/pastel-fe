@@ -5,6 +5,7 @@ import { LoginComponent } from './login/login.component';
 import { FeedComponent } from './feed/feed.component';
 import { AuthGuard } from '../shared/guards/auth.guard';
 import { UserPageComponent } from './user-page/user-page.component';
+import { EditUserComponent } from './edit-user/edit-user.component';
 
 export const routes: Routes = [
     {path: 'home', component: HomeComponent},
@@ -12,5 +13,6 @@ export const routes: Routes = [
     {path: 'login', component: LoginComponent},
     {path: 'feed', component: FeedComponent, canActivate: [AuthGuard]},
     {path: 'user/:id', component: UserPageComponent, canActivate: [AuthGuard]},
+    {path: 'user/edit/:id', component: EditUserComponent, canActivate: [AuthGuard]},
     {path: '', redirectTo: '/home', pathMatch: 'full'}
 ];
