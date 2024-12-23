@@ -3,16 +3,19 @@ import { SidebarComponent } from "../sidebar/sidebar.component";
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { UserService } from '../../shared/services/user.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { ErrorComponent } from "../../shared/components/error/error.component";
 
 @Component({
   selector: 'app-edit-user',
   standalone: true,
-  imports: [SidebarComponent, ReactiveFormsModule],
+  imports: [SidebarComponent, ReactiveFormsModule, CommonModule, ErrorComponent],
   templateUrl: './edit-user.component.html',
   styleUrl: './edit-user.component.scss'
 })
 export class EditUserComponent implements OnInit{
   id: any = '';
+  editUserErr: any = null;
   editUserForm = new FormGroup({
     userName: new FormControl(''),
     displayName: new FormControl(''),
@@ -42,7 +45,11 @@ export class EditUserComponent implements OnInit{
         console.log('put edit user res', response);
         this.router.navigate([`/user/${this.id}`]);
       },
-      error: err => console.log('put edit user err', err)
+      error: err =>{
+        console.log('err', err);
+        this.editUserErr = err.error;
+        this.editUserErr.data = err.error.data.map((item: any) => item.msg);
+      }
     })
   }
 }

@@ -1,1 +1,28 @@
-<div class="sidebar">sidebar</div>
+<div class="sidebar">
+    <ul class="sidebar__content">
+        <li class="sidebar__item" routerLink="/feed" [routerLinkActive]="['sidebar__item--active']">
+            <img src="../../shared/icons/home-4-svgrepo-com.svg" class="sidebar__icon">
+            My Feed
+        </li>
+        <li class="sidebar__item" routerLink="/explore" [routerLinkActive]="['sidebar__item--active']">
+            <img src="../../shared/icons/web-svgrepo-com.svg" class="sidebar__icon">
+            Explore
+        </li>
+        <li class="sidebar__item">
+            <img src="../../shared/icons/search-svgrepo-com.svg" class="sidebar__icon">
+            Search
+        </li>
+        <li class="sidebar__item" routerLink="{{ profileLink }}" [routerLinkActive]="['sidebar__item--active']">
+            <img src="../../shared/icons/user-3-svgrepo-com.svg" class="sidebar__icon">
+            Profile
+        </li>
+        <li class="sidebar__item" routerLink="{{ editProfileLink }}" [routerLinkActive]="['sidebar__item--active']">
+            <img src="../../shared/icons/settings-2-svgrepo-com.svg" class="sidebar__icon">
+            Edit Profile
+        </li>
+        <li class="sidebar__item" (click)="logout()">
+            <img src="../../shared/icons/logout-2-svgrepo-com.svg" class="sidebar__icon">
+            Logout
+        </li>
+    </ul>
+</div>

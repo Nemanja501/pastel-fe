@@ -1,6 +1,33 @@
 @use '../../shared/styles/base' as *;
 
 .sidebar {
-    background-color: $color-primary-dark;
+
     height: 100%;
+    
+
+    &__content {
+        padding-top: 3rem;
+        position: sticky;
+        top: 0;
+    }
+
+    &__item {
+        display: flex;
+        align-items: center;
+        color: $color-secondary;
+        font-size: 6rem;
+        margin: 1rem 0;
+        padding-left: 1rem;
+        transition: all .2s;
+
+        &:hover, &--active {
+            background-color: rgba($color-secondary, .5);
+            cursor: pointer;
+        }
+    }
+
+    &__icon {
+        height: 6rem;
+        margin-right: 1rem;
+    }
 }

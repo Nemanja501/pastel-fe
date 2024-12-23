@@ -9,8 +9,14 @@ export class PostService {
         return this.http.post('http://localhost:3000/post', postData);
     }
 
-    getFeed(page: number = 1) {
+    getFeed(userId: string, page: number = 1) {
         return this.http.get('http://localhost:3000/feed', {
+            params: { page, userId }
+        });
+    }
+
+    getExplore(page: number = 1) {
+        return this.http.get('http://localhost:3000/explore', {
             params: { page }
         });
     }

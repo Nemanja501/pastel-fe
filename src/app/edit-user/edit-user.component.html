@@ -29,7 +29,12 @@
     
             <button type="submit" class="btn--form" >Submit</button>
         </form>
+
+        <div *ngIf="editUserErr">
+            <app-error [title]="editUserErr.message" [data]="editUserErr.data"></app-error>
+        </div>
     </div>
+
         <div class="sidebar-container">
             <app-sidebar></app-sidebar>
     </div>
