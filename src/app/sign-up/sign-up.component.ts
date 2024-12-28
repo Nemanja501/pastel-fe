@@ -3,13 +3,13 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../../shared/services/auth.service';
 import { LoadingSpinnerComponent } from "../../shared/components/loading-spinner/loading-spinner.component";
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { ErrorComponent } from '../../shared/components/error/error.component';
 
 @Component({
   selector: 'app-sign-up',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule, LoadingSpinnerComponent, ErrorComponent],
+  imports: [ReactiveFormsModule, CommonModule, LoadingSpinnerComponent, ErrorComponent, RouterLink],
   templateUrl: './sign-up.component.html',
   styleUrl: './sign-up.component.scss'
 })

@@ -1,0 +1,10 @@
+@use '../../shared/styles/base' as *;
+
+.feed {
+
+    &__no-posts-message {
+        color: $color-secondary;
+        font-size: 2rem;
+        margin-top: 3rem;
+    }
+}

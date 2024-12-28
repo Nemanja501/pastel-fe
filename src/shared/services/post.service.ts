@@ -20,4 +20,10 @@ export class PostService {
             params: { page }
         });
     }
+
+    postSearch(search: string, page: number = 1) {
+        return this.http.post('http://localhost:3000/search', search, {
+            params: { page }
+        })
+    }
 }

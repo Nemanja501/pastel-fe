@@ -1,0 +1,67 @@
+@use '../../shared/styles/base' as *;
+
+.search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+    &__form {
+        margin-top: 3rem;
+        background-color: $color-primary-light;
+        box-shadow: $shadow-primary;
+        width: 70vw;
+        height: 10rem;
+        border-radius: 5rem;
+        display: flex;
+        align-items: center;
+    }
+
+    &__input {
+        border: none;
+        background-color: rgba($color-secondary, .7);
+        color: $color-primary-light;
+        font-size: 2rem;
+        border-radius: 5rem;
+        height: 40%;
+        width: 90%;
+        margin-left: 3rem;
+        
+        &:focus {
+            outline: none;
+            background-color: $color-secondary;
+        }
+    }
+
+    &__icon {
+        height: 5rem;
+        width: 5rem;
+    }
+
+    &__btn {
+        background-color: $color-primary-light;
+        border: none;
+        cursor: pointer;
+
+        &:disabled {
+            pointer-events: none;
+        }
+
+        & > img {
+            opacity: .8;
+        }
+
+        &:disabled > img{
+            opacity: .3;
+        }
+
+        &:hover > img {
+            opacity: 1;
+        }
+    }
+
+    &__posts,
+    &__users {
+        margin-top: 3rem;
+    }
+}

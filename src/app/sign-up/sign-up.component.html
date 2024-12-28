@@ -38,6 +38,7 @@
             <button type="submit" class="btn--form" [disabled]="!signupForm.valid">Submit</button>
         </form>
     </div>
+    <div class="form__message form__message--signup" [routerLink]="'/login'">Already have an account? Click here to log in</div>
     <div class="error-container-1" *ngIf="signupErr">
         <app-error [title]="signupErr.message" [data]="signupErr.data"></app-error>
     </div>

@@ -2,6 +2,7 @@
     <div class="feed">
         <app-new-post></app-new-post>
         <div class="posts-container" *ngIf="!initialLoad">
+            <div class="feed__no-posts-message" *ngIf="!posts">There is nothing on your feed! Follow some accounts and you will see their posts on your feed!</div>
             <app-post *ngFor="let post of posts" [displayName]="post.user.displayName" [userName]="post.user.userName" [content]="post.content" [userId]="post.user._id"></app-post>
             <div class="posts-container-2" *ngIf="!isLoading">
                 <app-post *ngFor="let post of newPosts" [displayName]="post.user.displayName" [userName]="post.user.userName" [content]="post.content" [userId]="post.user._id"></app-post>

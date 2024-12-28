@@ -7,6 +7,7 @@ import { AuthGuard } from '../shared/guards/auth.guard';
 import { UserPageComponent } from './user-page/user-page.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
 import { ExploreComponent } from './explore/explore.component';
+import { SearchComponent } from './search/search.component';
 
 export const routes: Routes = [
     {path: 'home', component: HomeComponent},
@@ -14,6 +15,7 @@ export const routes: Routes = [
     {path: 'login', component: LoginComponent},
     {path: 'feed', component: FeedComponent, canActivate: [AuthGuard]},
     {path: 'explore', component: ExploreComponent, canActivate: [AuthGuard]},
+    {path: 'search', component: SearchComponent, canActivate: [AuthGuard]},
     {path: 'user/:id', component: UserPageComponent, canActivate: [AuthGuard]},
     {path: 'user/edit/:id', component: EditUserComponent, canActivate: [AuthGuard]},
     {path: '', redirectTo: '/home', pathMatch: 'full'}
