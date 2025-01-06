@@ -20,7 +20,7 @@
         font-size: 2.5rem;
         padding: 1.5rem;
         transform: translateY(-1rem);
-        background-color: rgba($color-secondary, .6);
+        background-color: rgba($color-secondary, .65);
         border-radius: 3rem;
         height: 15rem;
         width: 70rem;
@@ -28,11 +28,6 @@
         &:focus {
             outline: none;
             background-color: rgba($color-secondary, .8);
-        }
-
-        &::placeholder {
-            color: rgba($color-primary-dark, .6);
-            transform: translateX(2rem);
         }
     }
 

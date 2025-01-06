@@ -105,10 +105,10 @@
 //HR
 .hr {
     &--1 {
-        height: .5rem;
+        height: .3rem;
         border: none;
         border-radius: 1rem;
-        background-color: rgba($color-primary, .8);
+        background-color: rgba($color-secondary, .8);
     }
 
     &--2 {

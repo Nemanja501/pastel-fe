@@ -10,16 +10,30 @@
     margin-top: 5rem;
     padding: 2rem;
     box-shadow: $shadow-primary;
+    transition: all .2s;
+
+    &:hover {
+        background-color: rgba($color-primary-light, .75);
+        cursor: pointer;
+    }
 
     &__author {
         
         &-displayname {
             font-size: 4rem;
+            
+            &:hover {
+                text-decoration: underline;
+            }
         }
 
         &-username {
             font-size: 3rem;
             margin-bottom: 1rem;
+
+            &:hover {
+                text-decoration: underline;
+            }
         }
     }
 

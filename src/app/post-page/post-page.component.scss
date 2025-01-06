@@ -1,0 +1,49 @@
+@use '../../shared/styles/base' as *;
+
+.post-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &__content {
+        margin-top: 3rem;
+        background-color: $color-primary-light;
+        max-height: 60vh;
+        width: 90%;
+        box-shadow: $shadow-primary;
+        border-radius: 10rem;
+        padding-left: 7rem;
+        padding: 3rem;
+    }
+
+    &__header {
+        margin-bottom: 1.5rem;
+    }
+
+    &__displayname {
+        color: $color-secondary;
+        font-size: 7rem;
+    }
+
+    &__username {
+        color: $color-secondary;
+        font-size: 5rem;
+    }
+
+    &__displayname:hover,
+    &__username:hover {
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+    &__paragraph {
+        font-size: 7rem;
+        color: $color-secondary;
+        margin-top: 3rem;
+    }
+}
+
+.comments {
+    padding: 3rem;
+}

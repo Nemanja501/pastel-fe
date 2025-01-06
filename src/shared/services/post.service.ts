@@ -26,4 +26,14 @@ export class PostService {
             params: { page }
         })
     }
+
+    getSinglePost(id: string, page: number = 1) {
+        return this.http.get(`http://localhost:3000/post/${id}`, {
+            params: { page }
+        });
+    }
+
+    postComment(commentData: any) {
+        return this.http.post('http://localhost:3000/comment', commentData);
+    }
 }

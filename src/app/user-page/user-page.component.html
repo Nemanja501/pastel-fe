@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="user-page">
+    <div class="user-page" *ngIf="user">
         <div class="user-page__content">
             <div class="user-page__header">
                 <h2 class="user-page__displayname">{{ user.displayName }}</h2>
@@ -13,8 +13,8 @@
                 <button class="user-page__btn" *ngIf="isCurrentUser" routerLink="{{ editUserLink }}">Edit Profile</button>
             </div>
         </div>
-        <div class="posts-container" *ngIf="posts.length > 0">
-            <app-post *ngFor="let post of posts" [userName]="user.userName" [displayName]="user.displayName" [content]="post.content" [userId]="user._id"></app-post>
+        <div class="posts-container" *ngIf="posts && posts.length > 0">
+            <app-post *ngFor="let post of posts" [userName]="user.userName" [displayName]="user.displayName" [content]="post.content" [userId]="user._id" [postId]="post._id"></app-post>
         </div>
     </div>
     <div class="sidebar-container">
