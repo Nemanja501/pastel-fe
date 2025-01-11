@@ -1,11 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute, NavigationStart, Router, RouterLink } from '@angular/router';
 import { UserService } from '../../shared/services/user.service';
 import { SidebarComponent } from "../sidebar/sidebar.component";
 import { PostComponent } from "../post/post.component";
 import { User } from '../../shared/models/user.model';
 import { Post } from '../../shared/models/post.model';
 import { CommonModule } from '@angular/common';
+import { filter, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-user-page',
@@ -14,18 +15,26 @@ import { CommonModule } from '@angular/common';
   templateUrl: './user-page.component.html',
   styleUrl: './user-page.component.scss'
 })
-export class UserPageComponent implements OnInit{
+export class UserPageComponent implements OnInit, OnDestroy{
   id: any = '';
+  page: number = 1;
   user!: User;
   isFollowing: boolean = false;
   isCurrentUser: boolean = false;
   posts: Array<Post> = [];
+  newPosts: Array<Post> = [];
   editUserLink: string = '';
+  subscription!: Subscription;
 
   constructor (private route: ActivatedRoute, private userService: UserService, private router: Router) {}
 
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id');
+    this.subscription = this.route.params.subscribe(value => {
+      if(value['id'] && value['id'] !== this.id) {
+        this.reloadCurrentRoute();
+      }
+    });
     const followerId = JSON.parse(localStorage.getItem('userId') as string);
     this.userService.getUser(followerId, this.id).subscribe((resUser: any) => {
       this.user = resUser.user as User;
@@ -66,4 +75,30 @@ export class UserPageComponent implements OnInit{
       error: err => console.log('unfollowing error', err)
     });
   }
+
+    @HostListener("window:scroll", [])
+    onScroll() {
+      if ((window.innerHeight + window.scrollY) >= document.body.scrollHeight) { // the user has scrolled to the bottom of the page
+        this.page++;
+        const followerId = JSON.parse(localStorage.getItem('userId') as string);
+        this.userService.getUser(followerId, this.id, this.page).subscribe((result: any) =>{
+          console.log('result', result);
+          if(result.user.posts.length > 0){
+            if(this.newPosts.length <= 0){
+              this.newPosts = result.user.posts
+            }else{
+              this.posts.push(...this.newPosts);
+              this.newPosts = result.user.posts
+            }
+          }else {
+            this.page--;
+          }
+          console.log(this.page);
+        })
+      }
+    }
+
+    ngOnDestroy(): void {
+      this.subscription.unsubscribe();
+    }
 }
