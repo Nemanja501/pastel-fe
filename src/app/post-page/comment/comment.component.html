@@ -1,6 +1,9 @@
 <div class="comment">
-    <h3 class="comment__displayname" routerLink="{{ userLink }}">{{ displayName }}</h3>
-    <h3 class="comment__username" routerLink="{{ userLink }}">{{ '@' + userName }}</h3>
+    <h3 class="comment__displayname">
+        <span routerLink="{{ userLink }}">{{ displayName }}</span>
+        <p class="comment__date">{{ date }}</p>
+    </h3>
+    <h3 class="comment__username"><span routerLink="{{ userLink }}">{{ '@' + userName }}</span></h3>
     <hr>
     <p class="comment__content">{{ content }}</p>
 </div>

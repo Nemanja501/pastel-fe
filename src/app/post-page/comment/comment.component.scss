@@ -4,7 +4,9 @@
     background-color: rgba($color-secondary, .8);
     color: $color-primary;
     margin-top: 3rem;
-    height: 15rem;
+    min-height: 15rem;
+    max-width: 60rem;
+    word-wrap: break-word;
     border-radius: 3rem;
     box-shadow: $shadow-primary;
     padding: 1.5rem;
@@ -17,17 +19,23 @@
 
     &__displayname {
         font-size: 3rem;
+        display: flex;
+        justify-content: space-between;
     }
 
     &__username {
         font-size: 2rem;
     }
 
-    &__displayname:hover,
-    &__username:hover {
+    &__displayname > span:hover,
+    &__username > span:hover {
         cursor: pointer;
         text-decoration: underline;
         text-decoration-thickness: .3rem;
+    }
+
+    &__date {
+        font-size: 2.5rem;
     }
 
     &__content {

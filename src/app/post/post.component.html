@@ -1,6 +1,7 @@
 <div class="post" routerLink="{{ postLink }}">
     <h3 class="post__author-displayname">
         <a routerLink="{{ userLink }}">{{ displayName }}</a>
+        <p class="post__date">{{ date }}</p>
     </h3>
     <h3 class="post__author-username">
         <a routerLink="{{ userLink }}">{{ '@' + userName }}</a>

@@ -9,8 +9,10 @@
     &__content {
         margin-top: 3rem;
         background-color: $color-primary-light;
-        max-height: 60vh;
-        width: 90%;
+        min-height: 30vh;
+        word-wrap: break-word;
+        max-width: 70vw;
+        width: 100%;
         box-shadow: $shadow-primary;
         border-radius: 10rem;
         padding-left: 7rem;
@@ -24,6 +26,8 @@
     &__displayname {
         color: $color-secondary;
         font-size: 7rem;
+        display: flex;
+        justify-content: space-between;
     }
 
     &__username {
@@ -31,10 +35,15 @@
         font-size: 5rem;
     }
 
-    &__displayname:hover,
-    &__username:hover {
+    &__displayname > span:hover,
+    &__username > span:hover {
         text-decoration: underline;
+        text-decoration-thickness: .3rem;
         cursor: pointer;
+    }
+
+    &__date {
+        font-size: 5rem;
     }
 
     &__paragraph {

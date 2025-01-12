@@ -2,8 +2,11 @@
     <div class="post-page" *ngIf="post">
         <div class="post-page__content">
             <div class="post-page__header">
-                <h2 class="post-page__displayname" routerLink="{{ userLink }}">{{ post.user.displayName }}</h2>
-                <h2 class="post-page__username" routerLink="{{ userLink }}">{{ '@' + post.user.userName }}</h2>
+                <h2 class="post-page__displayname">
+                    <span routerLink="{{ userLink }}">{{ post.user.displayName }}</span>
+                    <p class="post-page__date">{{ date }}</p>
+                </h2>
+                <h2 class="post-page__username"><span routerLink="{{ userLink }}">{{ '@' + post.user.userName }}</span></h2>
             </div>
             <hr class="hr--2">
             <p class="post-page__paragraph">{{ post.content }}</p>
@@ -13,9 +16,9 @@
             <div class="comments" *ngIf="comments && comments.length > 0">
                 <h2 class="heading-4">Comments:</h2>
                 <hr class="hr--2">
-                <app-comment *ngFor="let comment of comments" [userId]="comment.user._id" [content]="comment.content" [displayName]="comment.user.displayName" [userName]="comment.user.userName"></app-comment>
+                <app-comment *ngFor="let comment of comments" [userId]="comment.user._id" [content]="comment.content" [displayName]="comment.user.displayName" [userName]="comment.user.userName" [createdAt]="comment.createdAt"></app-comment>
                 <div class="new-comments" *ngIf="newComments && newComments.length > 0">
-                    <app-comment *ngFor="let newComment of newComments" [userId]="newComment.user._id" [content]="newComment.content" [displayName]="newComment.user.displayName" [userName]="newComment.user.userName"></app-comment>
+                    <app-comment *ngFor="let newComment of newComments" [userId]="newComment.user._id" [content]="newComment.content" [displayName]="newComment.user.displayName" [userName]="newComment.user.userName" [createdAt]="newComment.createdAt"></app-comment>
                 </div>
             </div>
         </div>

@@ -1,8 +1,8 @@
 @use '../../../shared/styles/base' as *;
 
 .add-comment {
-    height: 25rem;
-    width: 70rem;
+    height: 17rem;
+    width: 65rem;
     margin-top: 3rem;
     background-color: $color-primary-light;
     box-shadow: $shadow-primary;
@@ -20,7 +20,7 @@
         display: inline-block;
         border: none;
         background-color: rgba($color-secondary, .8);
-        height: 70%;
+        height: 60%;
         width: 70%;
         border-radius: 5rem;
         font-size: 3rem;
@@ -37,12 +37,11 @@
     &__btn {
         background-color: $color-secondary;
         color: $color-primary-light;
-        font-size: 3rem;
+        font-size: 2.5rem;
         border-radius: 1rem;
         border: none;
-        padding: .5rem 1rem;
         margin-top: 1rem;
-        height: 4rem;
+        height: 3rem;
         width: 7rem;
         transition: all .2s;
 

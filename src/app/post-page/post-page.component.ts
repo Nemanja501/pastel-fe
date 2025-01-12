@@ -7,6 +7,7 @@ import { AddCommentComponent } from './add-comment/add-comment.component';
 import { CommonModule } from '@angular/common';
 import { CommentComponent } from "./comment/comment.component";
 import { Comment } from '../../shared/models/comment.model';
+import { calculateDiffBetweenDates } from '../../shared/util/date.util';
 
 @Component({
   selector: 'app-post-page',
@@ -21,6 +22,7 @@ export class PostPageComponent implements OnInit{
   comments!: Array<Comment>;
   newComments!: Array<Comment>;
   userLink: string = '';
+  date!: string; 
   page: number = 1;
 
   constructor(private route: ActivatedRoute, private postService: PostService) {}
@@ -31,6 +33,8 @@ export class PostPageComponent implements OnInit{
       next: (result: any) => {
         console.log('single post res', result);
         this.post = result.post;
+        const _date = new Date(this.post.createdAt);
+        this.date = calculateDiffBetweenDates(_date);
         this.comments = result.post.comments;
         console.log('comments', this.comments);
         this.userLink = `/user/${this.post.user._id}`
