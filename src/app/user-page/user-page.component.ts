@@ -1,12 +1,13 @@
 import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute, NavigationStart, Router, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { UserService } from '../../shared/services/user.service';
 import { SidebarComponent } from "../sidebar/sidebar.component";
 import { PostComponent } from "../post/post.component";
 import { User } from '../../shared/models/user.model';
 import { Post } from '../../shared/models/post.model';
 import { CommonModule } from '@angular/common';
-import { filter, Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
+import { reloadCurrentRoute } from '../../shared/util/reload.util';
 
 @Component({
   selector: 'app-user-page',
@@ -30,9 +31,9 @@ export class UserPageComponent implements OnInit, OnDestroy{
 
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id');
-    this.subscription = this.route.params.subscribe(value => {
+    this.subscription = this.route.params.subscribe(value => { //reload page if the user navigates to another user page
       if(value['id'] && value['id'] !== this.id) {
-        this.reloadCurrentRoute();
+        reloadCurrentRoute(this.router);
       }
     });
     const followerId = JSON.parse(localStorage.getItem('userId') as string);
@@ -45,13 +46,6 @@ export class UserPageComponent implements OnInit, OnDestroy{
     })
   }
 
-  reloadCurrentRoute() {
-    const currentUrl = this.router.url;
-    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-      this.router.navigate([currentUrl]);
-    });
-  }
-
   followUser() {
     console.log('follow user');
     const followerId = JSON.parse(localStorage.getItem('userId') as string);
@@ -59,7 +53,7 @@ export class UserPageComponent implements OnInit, OnDestroy{
       this.router.navigate(['/login'])
     }
     this.userService.followUser(followerId, this.user._id).subscribe({
-      next: response => this.reloadCurrentRoute(),
+      next: response => reloadCurrentRoute(this.router),
       error: err => console.log('following error', err)
     });
   }
@@ -71,7 +65,7 @@ export class UserPageComponent implements OnInit, OnDestroy{
       this.router.navigate(['/login'])
     }
     this.userService.unfollowUser(followerId, this.user._id).subscribe({
-      next: response => this.reloadCurrentRoute(),
+      next: response => reloadCurrentRoute(this.router),
       error: err => console.log('unfollowing error', err)
     });
   }

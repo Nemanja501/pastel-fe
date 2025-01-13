@@ -3,6 +3,8 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { PostService } from '../../../shared/services/post.service';
 import { LoadingSpinnerComponent } from '../../../shared/components/loading-spinner/loading-spinner.component';
+import { reloadCurrentRoute } from '../../../shared/util/reload.util';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-post',
@@ -17,7 +19,7 @@ export class NewPostComponent {
   });
   isLoading = false;
 
-  constructor(private postService: PostService) {}
+  constructor(private postService: PostService, private router: Router) {}
 
   get content() {
     return this.newPostForm.get('content');
@@ -31,8 +33,7 @@ export class NewPostComponent {
     }).subscribe({
       next: response => {
         this.isLoading = false;
-        console.log(response);
-        this.content?.setValue('');
+        reloadCurrentRoute(this.router);
       },
       error: err => console.log(err)
     })

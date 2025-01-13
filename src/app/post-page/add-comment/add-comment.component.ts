@@ -2,6 +2,7 @@ import { Component, Input } from "@angular/core";
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms";
 import { PostService } from "../../../shared/services/post.service";
 import { Router } from "@angular/router";
+import { reloadCurrentRoute } from "../../../shared/util/reload.util";
 
 @Component({
     selector: 'app-add-comment',
@@ -18,13 +19,6 @@ export class AddCommentComponent {
 
     constructor(private postService: PostService, private router: Router) {}
 
-    reloadCurrentRoute() {
-        const currentUrl = this.router.url;
-        this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-          this.router.navigate([currentUrl]);
-        });
-      }
-
     get content() {
         return this.addCommentForm.get('content');
     }
@@ -38,7 +32,7 @@ export class AddCommentComponent {
         }).subscribe({
             next: (result: any) =>{
                 console.log('post comment result', result)
-                this.reloadCurrentRoute();
+                reloadCurrentRoute(this.router);
             },
             error: err => console.log('post comment err', err)
         })
