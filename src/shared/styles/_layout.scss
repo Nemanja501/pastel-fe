@@ -40,6 +40,11 @@
     grid-template-columns: 20% 1fr;
     min-height: 100vh;
     align-items: start;
+
+    @media only screen and (max-width: $bp-small) {
+        grid-template-columns: 1fr;
+        grid-template-rows: 10rem 1fr;
+    }
 }
 
 .sidebar-container {
@@ -48,6 +53,11 @@
     height: 100%;
     box-shadow: $shadow-secondary;
     background-color: $color-primary-dark;
+
+    @media only screen and (max-width: $bp-small) {
+        grid-row: 1 / 2;
+        height: 10rem;
+    }
 }
 
 .feed {

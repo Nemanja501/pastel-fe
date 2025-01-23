@@ -2,27 +2,27 @@
     <ul class="sidebar__content">
         <li class="sidebar__item" routerLink="/feed" [routerLinkActive]="['sidebar__item--active']">
             <img src="../../shared/icons/home-4-svgrepo-com.svg" class="sidebar__icon">
-            My Feed
+            <span>My Feed</span>
         </li>
         <li class="sidebar__item" routerLink="/explore" [routerLinkActive]="['sidebar__item--active']">
             <img src="../../shared/icons/web-svgrepo-com.svg" class="sidebar__icon">
-            Explore
+            <span>Explore</span>
         </li>
         <li class="sidebar__item" routerLink="/search" [routerLinkActive]="['sidebar__item--active']">
             <img src="../../shared/icons/search-svgrepo-com.svg" class="sidebar__icon">
-            Search
+            <span>Search</span>
         </li>
         <li class="sidebar__item" routerLink="{{ profileLink }}" [routerLinkActive]="['sidebar__item--active']">
             <img src="../../shared/icons/user-3-svgrepo-com.svg" class="sidebar__icon">
-            Profile
+            <span>Profile</span>
         </li>
         <li class="sidebar__item" routerLink="{{ editProfileLink }}" [routerLinkActive]="['sidebar__item--active']">
             <img src="../../shared/icons/settings-2-svgrepo-com.svg" class="sidebar__icon">
-            Edit Profile
+            <span>Edit Profile</span>
         </li>
         <li class="sidebar__item" (click)="logout()">
             <img src="../../shared/icons/logout-2-svgrepo-com.svg" class="sidebar__icon">
-            Logout
+            <span>Logout</span>
         </li>
     </ul>
 </div>

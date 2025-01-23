@@ -9,12 +9,20 @@
 .heading-2 {
     color: $color-secondary;
     font-size: 10rem;
+
+    @media only screen and (max-width: $bp-largest) {
+        font-size: 8rem;
+    }
 }
 
 .heading-3 {
     color: $color-primary-dark;
     font-family: $font-secondary !important;
     font-size: 4rem;
+
+    @media only screen and (max-width: $bp-largest) {
+        font-size: 3rem;
+    }
 }
 
 .heading-4 {

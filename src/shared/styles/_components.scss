@@ -19,23 +19,33 @@
         transform: translateY(-1rem);
         background-color: $color-primary-light;
     }
+}
 
-    &--form {
-        animation: none;
+.btn--form {
+    animation: none;
+    width: 15rem;
+    height: 5rem;
+    margin: 1.5rem 0 !important;
+
+    @media only screen and (max-width: $bp-largest) {
+        width: 12rem;
+        height: 4rem;
+        font-size: 2.5rem;
+    }
+
+    @media only screen and (max-width: $bp-small) {
         width: 15rem;
         height: 5rem;
-        margin-top: 3rem;
-
-        &:hover {
-            transform: translateY(0);
-        }
-
-        &:disabled {
-            opacity: .3;
-            pointer-events: none;
-        }
     }
-    
+
+    &:hover {
+        transform: translateY(0);
+    }
+
+    &:disabled {
+        opacity: .3;
+        pointer-events: none;
+    }
 }
 
 /// FORM
@@ -44,19 +54,15 @@
     display: grid;
     justify-items: center;
 
-    &--login {
-        grid-template-rows: repeat(3, 12rem);
-    }
-
     &__control {
         display: flex;
         flex-direction: column;
         align-items: center;
-        width: 50%;
+        width: 60%;
     }
 
     &__label {
-        font-size: 2.5rem;
+        font-size: 2rem;
         color: $color-primary-dark;
 
         &:has(+ .form__input:focus) {
@@ -67,12 +73,21 @@
     &__input {
         border: none;
         width: 100%;
-        height: 4rem;
+        height: 3.5rem;
         border-radius: 1rem;
         color: $color-primary-dark;
         font-size: 1.5rem;
         background-color: $color-secondary;
         transition: all .2s;
+
+        @media only screen and (max-width: $bp-largest) {
+            height: 3rem;
+            font-size: 1.3rem;
+        }
+
+        @media only screen and (max-width: $bp-small) {
+            height: 3.5rem;
+        }
 
         &:focus {
             outline: none;
@@ -87,6 +102,14 @@
     &__warning {
         color: $color-warning;
         font-size: 1.3rem;
+
+        @media only screen and (max-width: $bp-largest) {
+            font-size: 1rem;
+        }
+
+        @media only screen and (max-width: $bp-small) {
+            font-size: 1.3rem;
+        }
     }
 
     &__message {
@@ -94,10 +117,12 @@
         font-size: 2.5rem;
         cursor: pointer;
 
+        @media only screen and (max-width: $bp-largest) {
+            font-size: 2.2rem;
+        }
+
         &--signup {
-            grid-row: 2 / 3;
-            grid-column: 2 / 3;
-            padding-left: 8rem !important;
+            margin: 3rem 0 !important;    
         }
     }
 }

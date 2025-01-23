@@ -70,7 +70,7 @@ export class UserPageComponent implements OnInit, OnDestroy{
     });
   }
 
-    @HostListener("window:scroll", [])
+    @HostListener("document:scroll", [])
     onScroll() {
       if ((window.innerHeight + window.scrollY) >= document.body.scrollHeight) { // the user has scrolled to the bottom of the page
         this.page++;

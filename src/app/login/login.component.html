@@ -17,8 +17,8 @@
 
             <button type="submit" class="btn--form" [disabled]="!loginForm.valid">Submit</button>
         </form>
-        <div class="form__message" [routerLink]="'/signup'">Don't have an account? Click here to sign up</div>
     </div>
+    <div class="form__message" [routerLink]="'/signup'">Don't have an account? Click here to sign up</div>
     <div class="error-container-1" *ngIf="loginErr">
         <app-error [title]="loginErr.message" [data]="loginErr.data"></app-error>
     </div>

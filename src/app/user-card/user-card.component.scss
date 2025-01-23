@@ -11,6 +11,14 @@
     box-shadow: $shadow-primary;
     transition: all .2s;
 
+    @media only screen and (max-width: $bp-large) {
+        width: 70rem;
+    }
+
+    @media only screen and (max-width: $bp-medium) {
+        width: 60rem;
+    }
+
     &:hover {
         background-color: rgba($color-primary, .6);
         color: rgba($color-secondary, .8);

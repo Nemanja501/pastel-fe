@@ -17,6 +17,11 @@ $font-secondary: "Permanent Marker", cursive;
 $shadow-primary: 0 2rem 4rem $color-primary-dark;
 $shadow-secondary: 0 1rem 2rem $color-primary-dark;
 
+//BREAKPOINTS
+$bp-largest: 81.25em; //1300px / 16px
+$bp-large: 75em; //1200px / 16px
+$bp-medium: 68.75em; //1100px / 16px
+$bp-small: 56.25em; //900px / 16px
 
 html {
     box-sizing: border-box;

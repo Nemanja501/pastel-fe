@@ -28,11 +28,19 @@
         font-size: 7rem;
         display: flex;
         justify-content: space-between;
+        
+        @media only screen and (max-width: $bp-medium) {
+            font-size: 5rem;
+        }
     }
 
     &__username {
         color: $color-secondary;
         font-size: 5rem;
+
+        @media only screen and (max-width: $bp-medium) {
+            font-size: 3rem;
+        }
     }
 
     &__displayname > span:hover,
@@ -50,6 +58,10 @@
         font-size: 7rem;
         color: $color-secondary;
         margin-top: 3rem;
+
+        @media only screen and (max-width: $bp-medium) {
+            font-size: 5rem;
+        }
     }
 }
 

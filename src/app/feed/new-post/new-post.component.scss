@@ -13,6 +13,18 @@
     justify-content: center;
     box-shadow: $shadow-primary;
 
+    @media only screen and (max-width: $bp-large) {
+        width: 70rem;
+    }
+
+    @media only screen and (max-width: $bp-medium) {
+        width: 60rem;
+    }
+
+    @media only screen and (max-width: $bp-medium) {
+        height: 25rem;
+    }
+
     &__input {
         resize: none;
         border: none;
@@ -24,6 +36,18 @@
         border-radius: 3rem;
         height: 15rem;
         width: 70rem;
+
+        @media only screen and (max-width: $bp-large) {
+            width: 60rem;
+        }
+
+        @media only screen and (max-width: $bp-medium) {
+            width: 50rem;
+        }
+
+        @media only screen and (max-width: $bp-small) {
+            height: 12rem;
+        }
 
         &:focus {
             outline: none;
@@ -42,6 +66,11 @@
         background-color: rgba($color-secondary, .8);
         color: $color-primary-light;
         transition: all .2s;
+
+        @media only screen and (max-width: $bp-small) {
+            width: 10rem;
+            margin-top: 0;
+        }
 
         &:hover {
             background-color: rgba($color-secondary, 1);

@@ -1,14 +1,21 @@
 @use '../../shared/styles/base' as *;
 
 .sidebar {
-
     height: 100%;
-    
 
     &__content {
         padding-top: 3rem;
         position: sticky;
         top: 0;
+        display: flex;
+        flex-direction: column;
+
+        @media only screen and (max-width: $bp-small) {
+            flex-direction: row;
+            justify-content: space-between;
+            padding-top: 0rem;
+            max-height: 10rem !important;
+        }
     }
 
     &__item {
@@ -20,14 +27,44 @@
         padding-left: 1rem;
         transition: all .2s;
 
+        @media only screen and (max-width: $bp-largest) {
+            font-size: 5rem;
+        }
+
+        @media only screen and (max-width: $bp-large) {
+            font-size: 4.5rem;
+        }
+
+        @media only screen and (max-width: $bp-medium) {
+            font-size: 3.5rem;
+        }
+
         &:hover, &--active {
             background-color: rgba($color-secondary, .5);
             cursor: pointer;
+        }
+
+        & > span {
+            @media only screen and (max-width: $bp-small) {
+                display: none;
+            }
         }
     }
 
     &__icon {
         height: 6rem;
         margin-right: 1rem;
+
+        @media only screen and (max-width: $bp-large) {
+            height: 5rem;
+        }
+
+        @media only screen and (max-width: $bp-medium) {
+            height: 4rem;
+        }
+
+        @media only screen and (max-width: $bp-small) {
+            height: 10rem;
+        }
     }
 }
